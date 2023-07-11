@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function minProductSum(nums1, nums2) {
+  nums1.sort((a, b) => a - b);
+  nums2.sort((a, b) => a - b);
+
+  const n = nums1.length;
+  let minProductSum = 0;
+
+  for (let i = 0; i < n; i++) {
+    minProductSum += nums1[i] * nums2[n - i - 1];
+  }
+
+  return minProductSum;
+}
+const nums1 = [5, 3, 4, 2];
+const nums2 = [4, 2, 2, 5];
+const minProduct = minProductSum(nums1, nums2);
+document.write("The ans. is a "+minProduct);
+
+    </script>
+</body>
+</html>

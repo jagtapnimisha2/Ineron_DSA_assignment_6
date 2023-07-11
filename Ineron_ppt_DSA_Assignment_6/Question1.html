@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function findPermutation(s) {
+  const n = s.length;
+  let low = 0;
+  let high = n;
+  const result = [];
+
+  for (let i = 0; i < n; i++) {
+    if (s[i] === 'I') {
+      result.push(low);
+      low++;
+    } else if (s[i] === 'D') {
+      result.push(high);
+      high--;
+    }
+  }
+
+  result.push(low);
+  return result;
+}
+const s = "IDID";
+const permutation = findPermutation(s);
+document.write("The ans. is a "+permutation);
+
+    </script>
+</body>
+</html>

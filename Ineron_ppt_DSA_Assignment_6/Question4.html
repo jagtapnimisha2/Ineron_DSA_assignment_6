@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function findMaxLength(nums) {
+  const countMap = { 0: -1 };
+  let count = 0;
+  let maxLen = 0;
+
+  for (let i = 0; i < nums.length; i++) {
+    count += nums[i] === 1 ? 1 : -1;
+
+    if (count in countMap) {
+      maxLen = Math.max(maxLen, i - countMap[count]);
+    } else {
+      countMap[count] = i;
+    }
+  }
+
+  return maxLen;
+}
+const nums = [0, 1];
+const maxLength = findMaxLength(nums);
+document.write("The ans. is a "+maxLength);
+
+    </script>
+</body>
+</html>

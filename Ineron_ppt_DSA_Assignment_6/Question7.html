@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function generateMatrix(n) {
+  const matrix = Array(n).fill().map(() => Array(n).fill(0));
+  
+  let num = 1;
+  let topRow = 0, bottomRow = n - 1;
+  let leftCol = 0, rightCol = n - 1;
+  
+  while (topRow <= bottomRow && leftCol <= rightCol) {
+    for (let col = leftCol; col <= rightCol; col++) {
+      matrix[topRow][col] = num++;
+    }
+    topRow++;
+    for (let row = topRow; row <= bottomRow; row++) {
+      matrix[row][rightCol] = num++;
+    }
+    rightCol--;
+    for (let col = rightCol; col >= leftCol; col--) {
+      matrix[bottomRow][col] = num++;
+    }
+    bottomRow--;
+    
+    for (let row = bottomRow; row >= topRow; row--) {
+      matrix[row][leftCol] = num++;
+    }
+    leftCol++;
+  }
+  
+  return matrix;
+}
+const n = 3;
+const result = generateMatrix(n);
+document.write("The ans is a "+result);
+
+    </script>
+</body>
+</html>
